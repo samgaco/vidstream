@@ -5,5 +5,5 @@ class Purchase < ApplicationRecord
   belongs_to :user
 
   validates :price, presence: true
-  validates :purchasable_id, uniqueness: { scope: %i[purchasable user] }
+  validates_uniqueness_of :user_id, scope: :purchasable_id
 end

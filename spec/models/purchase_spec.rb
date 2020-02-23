@@ -6,12 +6,20 @@ RSpec.describe Purchase, type: :model do
   context 'When creating a purchase' do
     let(:user) { FactoryBot.build(:user) }
     let(:movie) { FactoryBot.build(:movie) }
+    let(:season) { FactoryBot.build(:season) }
 
-    it 'an item can not be purchased by the same user more than once within 2 days' do
+    it 'a movie can not be purchased by the same user more than once' do
       purchase = Purchase.new(price: 2.99, quality: 'HD', purchasable: movie, user: user)
-      purchase_rep = Purchase.new(price: 2.99, quality: 'HD', purchasable: movie, user: user)
+      purchase_rep = Purchase.new(price: 1.99, quality: 'SD', purchasable: movie, user: user)
       expect { purchase.save }.to change { user.purchases.count }.by(1)
-      expect { purchase_rep.save }.to change { user.purchases.count }.by(0)
+      expect { purchase_rep.save }.to raise_error(ActiveRecord::RecordNotUnique)
+    end
+
+    it 'a season can not be purchased by the same user more than once' do
+      purchase = Purchase.new(price: 2.99, quality: 'HD', purchasable: season, user: user)
+      purchase_rep = Purchase.new(price: 1.99, quality: 'SD', purchasable: season, user: user)
+      expect { purchase.save }.to change { user.purchases.count }.by(1)
+      expect { purchase_rep.save }.to raise_error(ActiveRecord::RecordNotUnique)
     end
   end
 end
