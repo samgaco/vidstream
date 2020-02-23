@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_193636) do
+ActiveRecord::Schema.define(version: 2020_02_23_193913) do
 
   create_table "episodes", force: :cascade do |t|
     t.string "title"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_193636) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["purchasable_type", "purchasable_id"], name: "index_purchases_on_purchasable_type_and_purchasable_id"
+    t.index ["user_id", "purchasable_id"], name: "index_purchases_on_user_id_and_purchasable_id", unique: true
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
