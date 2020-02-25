@@ -5,6 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.2'
 
+# To simulate data
+gem 'faker', '~> 1.4', '>= 1.4.3'
+
 # Test environment for rspec
 group :development, :test do
   gem 'capybara'
