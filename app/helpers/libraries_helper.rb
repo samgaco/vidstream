@@ -9,5 +9,5 @@ module LibrariesHelper
       library.push(purchase.purchasable) if time_diff <= 48
     end
     library
-    end
+  end
 end

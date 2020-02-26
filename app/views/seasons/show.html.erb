@@ -1,0 +1,14 @@
+<div class="row">
+<% for season in @seasons do %>
+<% if !season.episodes.empty? %>
+<div class="item-container border shadow col-3">
+ <%= season.title %> <br>
+  <%= season.plot %>
+    <p> Episodes: </p> 
+    <% for episode in season.episodes do %>
+        <%= episode.title %>
+    <% end %>
+ </div>
+<% end %>
+<% end %>
+</div>

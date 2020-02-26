@@ -1,0 +1,9 @@
+<div class="row main-cont-items">
+<% for item in @items do %>
+<div class="item-container border shadow col-3">
+ <%= item.title %> <br>
+  <%= item.plot %> <br>
+  <p> Category: <%= item.class.name %> </p>
+ </div>
+<% end %>
+</div>

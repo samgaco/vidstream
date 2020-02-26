@@ -5,4 +5,8 @@ class ItemsController < ApplicationController
     @items = (Movie.all + Season.all).sort_by(&:created_at)
     render json: @items
   end
+
+  def show
+    @items = (Movie.all + Season.all).sort_by(&:created_at)
+  end
 end

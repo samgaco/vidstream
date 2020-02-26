@@ -1,0 +1,8 @@
+<div class="row main-cont-items">
+<% for movie in @movies do %>
+<div class="item-container border shadow col-3">
+ <%= movie.title %> <br>
+  <%= movie.plot %>
+ </div>
+<% end %>
+</div>

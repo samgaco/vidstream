@@ -7,9 +7,17 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">    
+
   </head>
 
-  <body>
+  <body class="container-fluid">
+  <%= link_to  "Main", root_path, class:"nav-text" %>
+  <%= link_to  "Movies", movies_show_path, class:"nav-text" %>
+  <%= link_to  "Seasons", seasons_show_path, class:"nav-text" %>
+  <%= link_to  "All Content", items_show_path, class:"nav-text" %>
+  <%= link_to  "My Library", libraries_show_path, class:"nav-text" %>
+
     <%= yield %>
   </body>
 </html>

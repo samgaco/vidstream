@@ -8,6 +8,9 @@ ruby '2.6.2'
 # To simulate data
 gem 'faker', '~> 1.4', '>= 1.4.3'
 
+#for styling
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+
 # Test environment for rspec
 group :development, :test do
   gem 'capybara'

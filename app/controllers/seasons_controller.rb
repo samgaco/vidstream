@@ -5,4 +5,8 @@ class SeasonsController < ApplicationController
     @seasons = Season.includes(:episodes).order('number DESC').all.order('created_at DESC')
     render json: @seasons
   end
+
+  def show
+    @seasons = Season.includes(:episodes).order('number DESC').all.order('created_at DESC')
+  end
 end

@@ -5,4 +5,8 @@ class MoviesController < ApplicationController
     @movies = Movie.all.order('created_at DESC')
     render json: @movies
   end
+
+  def show 
+    @movies = Movie.all.order('created_at DESC')
+  end
 end
