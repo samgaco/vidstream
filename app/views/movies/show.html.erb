@@ -1,0 +1,15 @@
+<div class="row main-cont-items">
+<% for movie in @movies do %>
+<div class="item-container border shadow col-sm-11 col-md-5 col-lg-3">
+<h2 class="title"> <%= movie.title %> </h2> <br>
+  <%= movie.plot %>
+
+    <%= form_for(@purchase , url: purchases_create_path ) do |f| %>
+    <%= f.hidden_field :id, :value => movie.id %>
+    <%= f.hidden_field :type, :value => "Movie" %>
+    <%= f.submit "Purchase" , class: "btn btn btn-success" %> <br>
+    <% end %>
+
+ </div>
+<% end %>
+</div>

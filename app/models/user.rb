@@ -6,10 +6,10 @@ class User < ApplicationRecord
   validates :email, format: { with: /@/ }, uniqueness: { case_sensitive: false }, length: { minimum: 3, maximum: 254 }
 
   def movies
-    self.purchases.where(purchasable_type: "Movie")
+    purchases.where(purchasable_type: 'Movie')
   end
 
   def seasons
-    self.purchases.where(purchasable_type: "Season")
+    purchases.where(purchasable_type: 'Season')
   end
 end

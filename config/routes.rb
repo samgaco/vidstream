@@ -1,5 +1,19 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'home#index'
+
+  get 'movies/index' 
+  get 'movies/show'
+
+  get 'seasons/index' => 'seasons#index'
+  get 'seasons/show'
+
+  get 'items/index' => 'items#index'
+  get 'items/show'
+
+  get 'libraries/index' => 'libraries#index'
+  get 'libraries/show'
+
+  post 'purchases/create', to: 'purchases#create'
 end

@@ -1,0 +1,20 @@
+<div class="row main-cont-items">
+<% for season in @seasons do %>
+<% if !season.episodes.empty? %>
+<div class="item-container border shadow col-sm-11 col-md-5 col-lg-3">
+        <h2 class="title"> <%= season.title %> </h2> <br>
+  <%= season.plot %>
+    <p> Episodes: </p> 
+    <% for episode in season.episodes do %>
+      <%= episode.number %> <%= episode.title %>
+    <% end %>
+        <%= form_for(@purchase , url: purchases_create_path ) do |f| %>
+    <%= f.hidden_field :id, :value => season.id %>
+    <%= f.hidden_field :type, :value => "Season" %>
+    <%= f.submit "Purchase" , class: "btn btn btn-success" %> <br>
+    <% end %>
+ </div>
+<% end %>
+<% end %>
+
+</div>
