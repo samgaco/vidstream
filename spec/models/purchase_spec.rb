@@ -23,7 +23,7 @@ RSpec.describe Purchase, type: :model do
     end
 
     it 'a movie can be purchased by the same user more than once if 2 days passed' do
-      purchase = Purchase.new(created_at: Time.now - 5.day,price: 2.99, quality: 'HD', purchasable: movie, user: user)
+      purchase = Purchase.new(created_at: Time.now - 5.day, price: 2.99, quality: 'HD', purchasable: movie, user: user)
       purchase_rep = Purchase.new(created_at: Time.now, price: 1.99, quality: 'SD', purchasable: movie, user: user)
       expect { purchase.save }.to change { user.purchases.count }.by(1)
       expect { purchase_rep.save }.to change { user.purchases.count }.by(1)
@@ -35,6 +35,5 @@ RSpec.describe Purchase, type: :model do
       expect { purchase.save }.to change { user.purchases.count }.by(1)
       expect { purchase_rep.save }.to change { user.purchases.count }.by(1)
     end
-
   end
 end

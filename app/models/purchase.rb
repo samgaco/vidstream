@@ -8,7 +8,7 @@ class Purchase < ApplicationRecord
   validate :no_purchase_overlap
 
   def no_purchase_overlap
-    if Purchase.where("created_at >= ? AND user_id = ?", (Time.now-2.days), self.user.id).any?{|purchase| purchase.purchasable == self.purchasable}
+    if Purchase.where('created_at >= ? AND user_id = ?', (Time.now - 2.days), user.id).any? { |purchase| purchase.purchasable == purchasable }
       errors.add(:date_end, 'it overlaps another purchase')
     end
   end

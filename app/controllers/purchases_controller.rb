@@ -7,11 +7,11 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = Purchase.new(price: 2.99, user_id: 1)
-    if params[:purchase][:type] == "Movie"
-      @purchase.purchasable = Movie.find(params[:purchase][:id])
-    else
-      @purchase.purchasable = Season.find(params[:purchase][:id])
-    end
+    @purchase.purchasable = if params[:purchase][:type] == 'Movie'
+                              Movie.find(params[:purchase][:id])
+                            else
+                              Season.find(params[:purchase][:id])
+                            end
 
     if @purchase.save
       flash[:success] = 'Purchase succesful!'

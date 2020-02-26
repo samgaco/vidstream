@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
     render json: @movies
   end
 
-  def show 
+  def show
     @movies = Movie.all.order('created_at DESC')
     @purchase = Purchase.new
   end

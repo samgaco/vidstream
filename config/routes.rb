@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  get 'movies/index' 
+  get 'movies/index'
   get 'movies/show'
 
   get 'seasons/index' => 'seasons#index'
