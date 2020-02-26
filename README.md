@@ -1,4 +1,4 @@
-  <h3 align="center">GoTalk</h3>
+  <h3 align="center">Video Streaming Service</h3>
 
   <p align="center">
 

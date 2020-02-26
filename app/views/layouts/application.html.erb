@@ -12,6 +12,10 @@
   </head>
 
   <body class="container-fluid">
+    <% flash.each do |message_type,message| %>
+  <div class="alert alert-<%=message_type%>"><%=message%></div>
+  <%end%>
+  
 <button type="button" class="btn btn-outline-dark"><%= link_to  "Main", root_path, class:"nav-text" %></button>
 <button type="button" class="btn btn-outline-dark">  <%= link_to  "Movies", movies_show_path, class:"nav-text" %></button>
 <button type="button" class="btn btn-outline-dark">  <%= link_to  "Seasons", seasons_show_path, class:"nav-text" %></button>

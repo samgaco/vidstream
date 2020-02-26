@@ -14,9 +14,9 @@ class PurchasesController < ApplicationController
                             end
 
     if @purchase.save
-      flash[:success] = 'Purchase succesful!'
+      flash[:success] = 'Purchase succesful! You can now see it in your library'
     else
-      flash[:danger] = 'Something went wrong'
+      flash[:danger] = 'You already have this item in your library'
     end
     redirect_back(fallback_location: root_path)
   end
