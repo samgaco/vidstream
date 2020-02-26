@@ -8,5 +8,6 @@ class SeasonsController < ApplicationController
 
   def show
     @seasons = Season.includes(:episodes).order('number DESC').all.order('created_at DESC')
+    @purchase = Purchase.new
   end
 end

@@ -8,5 +8,6 @@ class MoviesController < ApplicationController
 
   def show 
     @movies = Movie.all.order('created_at DESC')
+    @purchase = Purchase.new
   end
 end
