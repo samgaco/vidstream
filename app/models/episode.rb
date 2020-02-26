@@ -5,4 +5,5 @@ class Episode < ApplicationRecord
 
   validates :title, presence: true
   validates_uniqueness_of :number, scope: :season
+
 end

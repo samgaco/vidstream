@@ -6,10 +6,13 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @purchase = Purchase.new(purchase_params, user_id: 1)
+    @purchase = Purchase.new(price: 2.99, user_id: 1)
 
-    @purchase.purchasable << Movie.find(params[:movie_id])
-    # @purchase.purchasable << Season.find(params[:season_id])
+    if params[:purchase][:type] == "Movie"
+      @purchase.purchasable = Movie.find(params[:purchase][:id])
+    else
+      @purchase.purchasable = Season.find(params[:purchase][:id])
+    end
 
     if @purchase.save
       flash[:success] = 'Purchase succesful!'
@@ -22,6 +25,6 @@ class PurchasesController < ApplicationController
   private
 
   def purchase_params
-    params.require(:purchase).permit(:price, :quality)
+    params.require(:purchase).permit(:quality)
   end
 end

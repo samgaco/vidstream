@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get 'libraries/index' => 'libraries#index'
   get 'libraries/show'
 
+  post 'purchases/create', to: 'purchases#create'
 end
