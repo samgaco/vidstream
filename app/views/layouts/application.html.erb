@@ -12,11 +12,11 @@
   </head>
 
   <body class="container-fluid">
-  <%= link_to  "Main", root_path, class:"nav-text" %>
-  <%= link_to  "Movies", movies_show_path, class:"nav-text" %>
-  <%= link_to  "Seasons", seasons_show_path, class:"nav-text" %>
-  <%= link_to  "All Content", items_show_path, class:"nav-text" %>
-  <%= link_to  "My Library", libraries_show_path, class:"nav-text" %>
+<button type="button" class="btn btn-outline-dark"><%= link_to  "Main", root_path, class:"nav-text" %></button>
+<button type="button" class="btn btn-outline-dark">  <%= link_to  "Movies", movies_show_path, class:"nav-text" %></button>
+<button type="button" class="btn btn-outline-dark">  <%= link_to  "Seasons", seasons_show_path, class:"nav-text" %></button>
+<button type="button" class="btn btn-outline-dark">  <%= link_to  "All", items_show_path, class:"nav-text" %></button>
+<button type="button" class="btn btn-outline-dark">  <%= link_to   "MyLibrary", libraries_show_path, class:"nav-text" %></button>
 
     <%= yield %>
   </body>
