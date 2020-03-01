@@ -9,8 +9,7 @@
     Ruby on Rails Project
     <br />
     <br />
-    <a href="https://vidstreamservice.herokuapp.com/">View Demo</a>
-    ·
+  ·
     <a href="https://github.com/samgaco/vidstream/issues">Report Bug</a>
     ·
     <a href="https://github.com/samgaco/vidstream/issues">Request Feature</a>
