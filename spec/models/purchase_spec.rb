@@ -35,19 +35,5 @@ RSpec.describe Purchase, type: :model do
       expect { purchase.save }.to change { user.purchases.count }.by(1)
       expect { purchase_rep.save }.to change { user.purchases.count }.by(1)
     end
-
-    it 'once bought displays time left correctly' do
-      purchase = Purchase.new(created_at: Time.now, price: 2.99, quality: 'HD', purchasable: season, user: user)
-      expect { purchase.save }.to change { user.purchases.count }.by(1)
-      expect(purchase.purchasable.time_left).to be(48.0)
-    end
-
-    it 'if it was previously bought, displays the time correctly' do
-      purchase = Purchase.new(created_at: Time.now - 5.day, price: 2.99, quality: 'HD', purchasable: season, user: user)
-      purchase_rep = Purchase.new(created_at: Time.now, price: 1.99, quality: 'SD', purchasable: season, user: user)
-      expect { purchase.save }.to change { user.purchases.count }.by(1)
-      expect { purchase_rep.save }.to change { user.purchases.count }.by(1)
-      expect(purchase_rep.purchasable.time_left).to be(48)
-    end
   end
 end

@@ -1,9 +1,9 @@
 <div class="row main-cont-items">
 <% for item in @library do %>
 <div class="item-container border shadow col-sm-11 col-md-5 col-lg-3">
-<h2 class="title"> <%= item.title %> </h2>
-  <%= item.plot %>
-  <p> <%= item.time_left %> hours left to watch </p>
+<h2 class="title"> <%= item[0].title %> </h2>
+  <%= item[0].plot %>
+  <p> <%= item[1] %> hours left to watch </p>
  </div>
 <% end %>
 </div>

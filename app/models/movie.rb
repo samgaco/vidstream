@@ -5,12 +5,4 @@ class Movie < ApplicationRecord
   has_many :purchases, as: :purchasable
 
   validates :title, presence: true
-
-  def time_left
-    if !purchases.empty?
-      ((purchases.find_by(user_id: 1).created_at + 2.days - Time.now) / 1.hour).round(1)
-    else
-      false
-    end
-  end
 end
