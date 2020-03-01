@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @purchase = Purchase.new(price: 2.99, user_id: 1)
+    @purchase = Purchase.new(price: 2.99, user_id: 1, created_at: Time.now)
     @purchase.purchasable = if params[:purchase][:type] == 'Movie'
                               Movie.find(params[:purchase][:id])
                             else
